@@ -20,6 +20,20 @@ const addUserGroup = async ( req, res ) => {
   }
 }
 
+const deleteUserGroup = groups => new Promise( ( resolve, reject ) => {
+  const handle = async () => {
+    const len = groups.length
+    for ( let i = 0; i < len; i++ ) {
+      await UserGroup.deleteMany( { group_id: groups[i] } )
+
+      if ( i === len - 1 ) resolve()
+    }
+  }
+
+  handle()
+} )
+
 export {
-  addUserGroup
+  addUserGroup,
+  deleteUserGroup
 }

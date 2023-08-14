@@ -1,4 +1,5 @@
 import Group from '../../model/group.js'
+import { deleteUserGroup } from './userGroup.js'
 
 const addGroup = async ( req, res ) => {
   try {
@@ -40,9 +41,38 @@ const modifyGroup = async ( req, res ) => {
   }
 }
 
+const deleteSingleGroup = async ( req, res ) => {
+  try {
+    const { id } = req.params
+    await Group.findByIdAndDelete( id )
+    res.status( 200 ).json( { success: true, msg: 'group deleted successfully' } )
+  } catch (error) {
+    res.status( 500 ).send( error )
+  }
+}
+
+const deleteGroups = async ( req, res ) => {
+  try {
+    const { idList } = req.query
+    const len = idList.length
+
+    await deleteGroups( idList )
+
+    for ( let i = 0; i < len; i++ ) {
+      await Group.findByIdAndDelete( idList[i] )
+
+      if ( i === len - 1 ) res.status( 200 ).json( { success: true, msg: `${ len } group${ len > 1 ? 's' : '' } removed` } )
+    }
+  } catch (error) {
+    res.status( 500 ).send( error )
+  }
+}
+
 export {
   addGroup,
   fetchAllGroups,
   countGroup,
   modifyGroup,
+  deleteSingleGroup,
+  deleteGroups,
 }

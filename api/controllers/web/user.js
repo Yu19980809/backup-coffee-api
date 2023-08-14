@@ -65,7 +65,7 @@ const fetchGroups = users => new Promise( ( resolve, reject ) => {
       for ( let j = 0; j < groupsLen; j++ ) {
         const userGroup = userGroups[j]
         const group = await Group.findById( userGroup.group_id )
-        groups.push( group.name )
+        if ( group ) groups.push( group.name )
       }
 
       const newUser = {
