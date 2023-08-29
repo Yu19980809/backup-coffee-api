@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
-const orderDrinkSchema = new mongoose.Schema({
-  drink_id: mongoose.Schema.Types.ObjectId,
+const orderCommoditySchema = new mongoose.Schema({
+  commodity_id: mongoose.Schema.Types.ObjectId,
   order_id: mongoose.Schema.Types.ObjectId,
   count: Number,
   price: Number,
@@ -10,4 +10,4 @@ const orderDrinkSchema = new mongoose.Schema({
   addon: { type: Array, default: [] }
 }, { timestamps: true })
 
-export default mongoose.model( 'OrderDrink', orderDrinkSchema )
+export default mongoose.model( 'OrderCommodity', orderCommoditySchema )

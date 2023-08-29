@@ -5,7 +5,7 @@ const memberSchema = new mongoose.Schema({
   tel: String,
   address: String,
   password: String,
-  role: String,
+  role: { type: String, default: 'salesclerk' },
   shop_id: mongoose.Schema.Types.ObjectId
 }, { timestamps: true })
 

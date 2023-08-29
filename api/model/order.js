@@ -5,7 +5,7 @@ const orderSchema = new mongoose.Schema({
   price: Number,
   shop_id: mongoose.Schema.Types.ObjectId,
   address: String,
-  type: { type: Number, default: 0 },
+  type: { type: String, default: '自提' },
   status: { type: Number, default: 0 },
   user_id: mongoose.Schema.Types.ObjectId
 }, { timestamps: true })

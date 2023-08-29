@@ -5,7 +5,7 @@ const addressSchema = new mongoose.Schema({
   tag: String,
   name: String,
   tel: Number,
-  default: { type: String, default: 'no' }
+  is_default: { type: String, default: 'no' }
 }, { timestamps: true })
 
 export default mongoose.model( 'Address', addressSchema )

@@ -10,6 +10,11 @@ import memberRoutes from './api/routes/member.js'
 import userRoutes from './api/routes/user.js'
 import groupRoutes from './api/routes/group.js'
 import userGroupRoutes from './api/routes/userGroup.js'
+import commodityRoutes from './api/routes/commodity.js'
+import couponRoutes from './api/routes/coupon.js'
+import orderRoutes from './api/routes/order.js'
+import authRoutes from './api/routes/auth.js'
+import addressRoutes from './api/routes/address.js'
 
 // config
 dotenv.config()
@@ -29,6 +34,11 @@ app.use( '/api/v1/member', memberRoutes )
 app.use( '/api/v1/user', userRoutes )
 app.use( '/api/v1/group', groupRoutes )
 app.use( '/api/v1/user_group', userGroupRoutes )
+app.use( '/api/v1/commodity', commodityRoutes )
+app.use( '/api/v1/coupon', couponRoutes )
+app.use( '/api/v1/order', orderRoutes )
+app.use( '/api/v1/auth', authRoutes )
+app.use( '/api/v1/address', addressRoutes )
 
 // mongodb
 mongoose.set( 'strictQuery', true )

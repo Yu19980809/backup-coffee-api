@@ -1,8 +1,16 @@
 import express from 'express'
-import { addCategory } from '../controllers/web/category.js'
+import { addCategory, fetchAllCategories, deleteSingleCategory, deleteCategories } from '../controllers/web/category.js'
+import { fetchAllCategoriesWeapp } from '../controllers/weapp/category.js'
 
 const router = express.Router()
 
-router.post( '/web/', addCategory )
+// WEB
+router.post( '/web', addCategory )
+router.get( '/web', fetchAllCategories )
+router.delete( '/web/single/:id', deleteSingleCategory )
+router.delete( '/web', deleteCategories )
+
+// WEAPP
+router.get( '/weapp', fetchAllCategoriesWeapp )
 
 export default router
