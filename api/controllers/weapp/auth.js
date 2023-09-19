@@ -15,7 +15,7 @@ const loginWeapp = async ( req, res ) => {
       createUser( openId, res )
     } else {
       const token = generateToken( user[0] )
-      res.status( 200 ).json( { data: user[0], token } )
+      res.status( 200 ).json( { success: true, isNew: false, user: user[0], token } )
     }
   } catch (error) {
     res.status( 500 ).send( error )
@@ -36,7 +36,7 @@ const createUser = async ( openId, res ) => {
   try {
     const user = await User.create( { openId } )
     const token = generateToken( user )
-    res.status( 200 ).json( { success: true, data: user, token } )
+    res.status( 200 ).json( { success: true, isNew: true, user, token } )
   } catch (error) {
     res.status( 500 ).send( error )
   }

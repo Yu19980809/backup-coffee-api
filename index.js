@@ -15,6 +15,8 @@ import couponRoutes from './api/routes/coupon.js'
 import orderRoutes from './api/routes/order.js'
 import authRoutes from './api/routes/auth.js'
 import addressRoutes from './api/routes/address.js'
+import orderCommodityRoutes from './api/routes/orderCommodities.js'
+import aliyunRoutes from './api/routes/aliyun.js'
 
 // config
 dotenv.config()
@@ -39,6 +41,8 @@ app.use( '/api/v1/coupon', couponRoutes )
 app.use( '/api/v1/order', orderRoutes )
 app.use( '/api/v1/auth', authRoutes )
 app.use( '/api/v1/address', addressRoutes )
+app.use( '/api/v1/order_commodity', orderCommodityRoutes )
+app.use( '/api/v1/aliyun', aliyunRoutes )
 
 // mongodb
 mongoose.set( 'strictQuery', true )

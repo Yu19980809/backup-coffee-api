@@ -3,7 +3,7 @@ import Category from '../../model/category.js'
 
 const fetchAllCommoditiesWeapp = async ( req, res ) => {
   try {
-    const commodities = await Commodity.find()
+    const commodities = await Commodity.find( { status: 'on' } )
     const newCommodities = await fetchCategory( commodities )
     res.status( 200 ).json( { success: true, data: newCommodities } )
   } catch (error) {
